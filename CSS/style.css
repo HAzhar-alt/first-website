@@ -1,52 +1,98 @@
-
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  background-color: #0a0a0a;
+  background-image: radial-gradient(#111 1px, transparent 1px);
+  background-size: 20px 20px;
+  color: #00ffe7;
+  animation: flickerBG 15s infinite linear;
 }
 
-nav {
-  background-color: #222;
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+@keyframes flickerBG {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
 }
 
-nav a {
-  color: white;
+/* Neon Glow Text */
+h1, h2 {
+  color: #00ffe7;
+  text-shadow: 0 0 5px #00ffe7, 0 0 10px #00ffe7;
+  font-family: 'Orbitron', sans-serif;
+}
+
+p, label, li {
+  color: #c9fbe5;
+}
+
+a {
+  color: #00ffe7;
   text-decoration: none;
 }
 
-main {
-  padding: 2rem;
+a:hover {
+  color: #f0f921;
+  text-shadow: 0 0 3px #f0f921;
 }
 
+/* Navigation */
+nav {
+  background-color: #0f0f0f;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  border-bottom: 2px solid #00ffe7;
+}
+
+/* Buttons */
 button {
-  padding: 0.5rem 1rem;
-  background-color: #007acc;
-  color: white;
-  border: none;
+  background-color: transparent;
+  color: #00ffe7;
+  border: 2px solid #00ffe7;
   border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
   cursor: pointer;
+  text-shadow: 0 0 5px #00ffe7;
+  transition: all 0.3s ease;
 }
 
-button:focus,
-input:focus,
-textarea:focus {
-  outline: 2px solid #333;
+button:hover {
+  background-color: #00ffe7;
+  color: #0a0a0a;
+  box-shadow: 0 0 10px #00ffe7;
 }
 
+/* Forms */
+input, textarea {
+  background-color: #111;
+  color: #00ffe7;
+  border: 1px solid #00ffe7;
+  padding: 0.5rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  font-family: 'Orbitron', sans-serif;
+}
+
+input:focus, textarea:focus {
+  outline: 2px solid #f0f921;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #222;
-  color: white;
+  background-color: #0f0f0f;
+  color: #c9fbe5;
+  border-top: 2px solid #00ffe7;
 }
 
-/* Responsive design */
+/* Hidden Toggle Sections */
+.hidden {
+  display: none;
+}
+
+/* Responsive */
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
@@ -59,6 +105,21 @@ footer {
 
   input, textarea {
     width: 100%;
-    box-sizing: border-box;
   }
+}
+
+.terminal-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(0deg, rgba(0,255,231,0.02), rgba(0,255,231,0.02) 1px, transparent 1px, transparent 20px);
+  z-index: -1;
+  animation: glow 2s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.1; }
+  50% { opacity: 0.2; }
 }
