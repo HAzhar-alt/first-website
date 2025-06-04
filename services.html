@@ -8,9 +8,18 @@
   <link rel = "stylesheet" href = "CSS/style.css" />
 </head>
 
+<script>
+  const toggleBtn = document.getElementById('darkModeToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+  });
+</script>
+
 <body>
   <div class="terminal-glow"></div>
   <header>
+    <button id="darkModeToggle" aria-label="Toggle dark mode">🌓</button>
+
     <nav>
       <a href = "index.html">Home</a>
       <a href = "services.html">Services</a>

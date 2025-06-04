@@ -1,125 +1,170 @@
+/* General Styling */
 body {
-  margin: 0;
-  font-family: 'Orbitron', 'Segoe UI', sans-serif;
   background-color: #0a0a0a;
-  background-image: radial-gradient(#111 1px, transparent 1px);
-  background-size: 20px 20px;
-  color: #00ffe7;
-  animation: flickerBG 15s infinite linear;
-}
-
-@keyframes flickerBG {
-  0% { background-position: 0 0; }
-  100% { background-position: 100px 100px; }
-}
-
-/* Neon Glow Text */
-h1, h2 {
-  color: #00ffe7;
-  text-shadow: 0 0 5px #00ffe7, 0 0 10px #00ffe7;
+  color: #00ffc3;
   font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+  line-height: 1.6;
 }
 
-p, label, li {
-  color: #c9fbe5;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  color: #00ffc3;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-a {
-  color: #00ffe7;
-  text-decoration: none;
+p, li, label, input, textarea, button {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  color: #00ffc3;
 }
 
-a:hover {
-  color: #f0f921;
-  text-shadow: 0 0 3px #f0f921;
+/* Dark Mode */
+body.dark-mode {
+  background-color: #f0f0f0;
+  color: #111;
 }
 
-/* Navigation */
-nav {
-  background-color: #0f0f0f;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  border-bottom: 2px solid #00ffe7;
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode label,
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode button {
+  color: #111;
 }
 
-/* Buttons */
-button {
-  background-color: transparent;
-  color: #00ffe7;
-  border: 2px solid #00ffe7;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-weight: bold;
-  cursor: pointer;
-  text-shadow: 0 0 5px #00ffe7;
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  background-color: #00ffe7;
-  color: #0a0a0a;
-  box-shadow: 0 0 10px #00ffe7;
-}
-
-/* Forms */
-input, textarea {
+/* Header and Navigation */
+header {
   background-color: #111;
-  color: #00ffe7;
-  border: 1px solid #00ffe7;
-  padding: 0.5rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  font-family: 'Orbitron', sans-serif;
-}
-
-input:focus, textarea:focus {
-  outline: 2px solid #f0f921;
-}
-
-/* Footer */
-footer {
-  text-align: center;
   padding: 1rem;
-  background-color: #0f0f0f;
-  color: #c9fbe5;
-  border-top: 2px solid #00ffe7;
+  text-align: center;
 }
 
-/* Hidden Toggle Sections */
+nav a {
+  color: #00ffc3;
+  text-decoration: none;
+  margin: 0 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: #00ffc3;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: right;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Dark Mode Button */
+#darkModeToggle {
+  background: none;
+  border: 2px solid #00ffc3;
+  color: #00ffc3;
+  font-size: 1rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+body.dark-mode #darkModeToggle {
+  border-color: #333;
+  color: #333;
+}
+
+/* Typewriter Message */
+#typewriter {
+  font-size: 1.5rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Mobile Responsive Nav */
+@media (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  nav a {
+    margin: 0.5rem 0;
+  }
+  #darkModeToggle {
+    margin-top: 1rem;
+  }
+}
+
+/* Terminal Glowing Line */
+.terminal-glow {
+  height: 5px;
+  background: linear-gradient(90deg, #00ffc3, #003c3c, #00ffc3);
+  animation: glowMove 4s linear infinite;
+}
+
+@keyframes glowMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
+
+/* Hidden Paragraph for Toggle Info */
 .hidden {
   display: none;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  main {
-    padding: 1rem;
-  }
-
-  input, textarea {
-    width: 100%;
-  }
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 2rem auto;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.terminal-glow {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: repeating-linear-gradient(0deg, rgba(0,255,231,0.02), rgba(0,255,231,0.02) 1px, transparent 1px, transparent 20px);
-  z-index: -1;
-  animation: glow 2s infinite ease-in-out;
+input, textarea, button {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #00ffc3;
+  background-color: #111;
+  color: #00ffc3;
 }
 
-@keyframes glow {
-  0%, 100% { opacity: 0.1; }
-  50% { opacity: 0.2; }
+input:focus, textarea:focus {
+  outline: 2px solid #00ffc3;
+}
+
+button[type=submit] {
+  cursor: pointer;
+  background-color: #00ffc3;
+  color: #111;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+button[type=submit]:hover {
+  background-color: #00cc9c;
 }

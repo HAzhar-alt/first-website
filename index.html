@@ -1,51 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cyber-Sentinel Solutions</title>
+  <title>Home - Cyber-Sentinel Solutions</title>
   <link rel="stylesheet" href="CSS/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="terminal-glow"></div>
+  <div class="terminal-glow"></div>
   <header>
     <nav>
-      <a href="index.html" aria-label="Home">Home</a>
-      <a href="services.html" aria-label="Our Services">Services</a>
-      <a href="contact.html" aria-label="Contact Us">Contact Us</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact Us</a>
+      <button id="darkModeToggle" aria-label="Toggle dark mode">🌓</button>
     </nav>
   </header>
-
   <main>
-    <section>
-      <h1>Welcome to Cyber-Sentinel Solutions</h1>
-      <p>Your trusted partner in digital security and consultancy.</p>
-      <button id="learnMoreBtn">Learn More</button>
-    </section>
+    <h1 id="typewriter"></h1>
+    <p>Welcome to Cyber-Sentinel Solutions, your trusted cybersecurity partner.</p>
   </main>
-
-  <footer>
-    <p>&copy; 2025 Cyber-Sentinel Solutions</p>
-  </footer>
-
   <script>
-    document.getElementById("learnMoreBtn").addEventListener("click", function () {
-      alert("At Cyber-Sentinel Solutions we provide cutting-edge cybersecurity audits, risk assessments, and training programs.");
+    const message = "Welcome to Cyber-Sentinel Solutions...";
+    const target = document.getElementById("typewriter");
+    let i = 0;
+    function type() {
+      if (i < message.length) {
+        target.innerHTML += message.charAt(i);
+        i++;
+        setTimeout(type, 80);
+      }
+    }
+    type();
+
+    const toggleBtn = document.getElementById('darkModeToggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
     });
   </script>
-
 </body>
-
 </html>
-
-<!-- services.html -->
-<!-- Duplicate structure and update main section -->
-
-<!-- contact.html -->
-<!-- Include a simple contact form -->
-
-
-
-<!-- Accessibility features include ARIA labels, semantic HTML, responsive design, color contrast, and focus states -->
 
